@@ -24,14 +24,14 @@ class ViewController: UIViewController {
     @IBAction func brightnessSpectAction(_ sender: UISlider) {
         let i : Float = sender.value > 0.5 ? 1 : 0
         let a = 2 * abs ( sender.value - 0.5 )
-        var previousValue : Float = 0.5
+        //var previousValue : Float = 0.5
         redSpectrum.setValue(  spectrumPerformanceUp.red   + (i - spectrumPerformanceUp.red  ) * a , animated: true)
         greenSpectrum.setValue(spectrumPerformanceUp.green + (i - spectrumPerformanceUp.green) * a , animated: true)
         blueSpectrum.setValue( spectrumPerformanceUp.blue  + (i - spectrumPerformanceUp.blue ) * a , animated: true)
-        if abs(previousValue - sender.value) > 0.05 {
-            imageRight.image = object?.imageModifier(redSpectrum: redSpectrum.value/1, greenSpectrum: greenSpectrum.value/1, blueSpectrum: blueSpectrum.value/1, contrastSpectrum: contrastSpectrum.value/1)
-            previousValue = sender.value
-        }
+//        if abs(previousValue - sender.value) > 0.05 {
+//            imageRight.image = object?.imageModifier(redSpectrum: redSpectrum.value/1, greenSpectrum: greenSpectrum.value/1, blueSpectrum: blueSpectrum.value/1, contrastSpectrum: contrastSpectrum.value/1)
+//            previousValue = sender.value
+//        }
         
     }
     @IBAction func SpectrumAction(_ sender: UISlider) {
@@ -63,20 +63,21 @@ class ViewController: UIViewController {
         default:
             flag = false
         }
+        brightnessSpectrum.setValue(0.5, animated: true)
         
-        if flag {
-            imageRight.image = object?.imageModifier(redSpectrum: spectrumPerformanceUp.red, greenSpectrum: spectrumPerformanceUp.green, blueSpectrum: spectrumPerformanceUp.blue, contrastSpectrum: spectrumPerformanceUp.contrast)
-            //print(spectrumPerformanceUp)
-            brightnessSpectrum.setValue(0.5, animated: true)
-            flag = false
-        }
+//        if flag {
+//            imageRight.image = object?.imageModifier(redSpectrum: spectrumPerformanceUp.red, greenSpectrum: spectrumPerformanceUp.green, blueSpectrum: spectrumPerformanceUp.blue, contrastSpectrum: spectrumPerformanceUp.contrast)
+//            //print(spectrumPerformanceUp)
+//            brightnessSpectrum.setValue(0.5, animated: true)
+//            flag = false
+//        }
         
     }
-    @IBAction func applyButton(_ sender: UIButton) {
-        //logLabel.text = object.getAverageRGB().SpeedUp
-        //        imageRight.image = object.getAverageRGB(myImage: imageLeft.image!)
+
+    @IBAction func applyButtonAction(_ sender: UIButton) {
+        imageRight.image = object?.imageModifier(redSpectrum: redSpectrum.value/1, greenSpectrum: greenSpectrum.value/1, blueSpectrum: blueSpectrum.value/1, contrastSpectrum: contrastSpectrum.value/1)
     }
-    @IBOutlet weak var logLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imageLeft.image  = UIImage(named: "ImageStory")
