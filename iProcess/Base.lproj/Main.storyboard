@@ -162,6 +162,9 @@
                                             <segment title="0.5X Bri.."/>
                                             <segment title="Norm.."/>
                                         </segments>
+                                        <connections>
+                                            <action selector="perDefinedFilterAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="QJl-WN-Eno"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <constraints>
@@ -188,12 +191,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="applyButton" destination="Fn9-oz-6PC" id="pIf-dB-VeI"/>
                         <outlet property="blueSpectrum" destination="PSg-Oj-BVL" id="d7c-Qw-gGO"/>
                         <outlet property="brightnessSpectrum" destination="hk1-ud-ZcN" id="Irr-te-tlR"/>
                         <outlet property="contrastSpectrum" destination="dg7-hy-e0c" id="pzC-Fl-1nI"/>
                         <outlet property="greenSpectrum" destination="k9S-2r-WGQ" id="ILK-bJ-Dji"/>
                         <outlet property="imageLeft" destination="VVm-ag-KRF" id="v3G-1X-oLO"/>
                         <outlet property="imageRight" destination="GQE-3h-Mtm" id="NZJ-Dr-zIo"/>
+                        <outlet property="preDefinedFilter" destination="juW-0z-LBB" id="Bht-EU-e83"/>
                         <outlet property="redSpectrum" destination="AqI-oN-iB8" id="r3g-cY-tLv"/>
                     </connections>
                 </viewController>
